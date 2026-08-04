@@ -8,10 +8,12 @@ The marketing site for [Gear Hub](https://github.com/jazzstack/Gear-Hub), a desk
 
 Gear Hub is an offline control panel for gaming gear. It reads and writes settings over local HID — nothing leaves your machine:
 
-- **Device catalog** — keyboards, mice, headsets and mics in one place, detected and listed automatically.
-- **Overview, live** — DPI, polling rate, lighting profile and firmware, read straight off the device.
-- **Performance tuning** — DPI sliders with presets, polling rate and sensor options, saved to the device itself.
-- **RGB & lighting** — modes, colors and brightness applied to the device — not to a cloud account.
+- **Device catalog** — keyboards, mice, headphones and mics in one place, grouped by type with live connection states and one-click navigation.
+- **Overview, live** — DPI, polling rate, lighting and firmware, read straight off the device.
+- **Performance tuning** — per-model DPI sliders with 400/800/1600/3200 presets, polling rate and sensor options, plus debounce on keyboards, saved to the device itself.
+- **RGB & lighting** — logo lighting for mice and RGB effects for keyboards, applied to the device — not to a cloud account.
+- **TFT screen** — GIF upload to the Aula F75 Max's 128×128 display (5 slots), with a test pattern and diagnostics.
+- **Settings & updates** — app info, in-app updates with download and restart-to-install, GitHub/website links and a one-click Report a bug.
 
 ### Why offline
 
@@ -24,16 +26,17 @@ Gear Hub is an offline control panel for gaming gear. It reads and writes settin
 
 ## The landing page
 
-A single-page dark editorial site built with Vite + React, featuring scroll-triggered reveals, animated product mockups and two interactive canvas effects.
+A single-page neutral editorial site built with Vite + React, in the style of a premium hardware-control product page: near-black surfaces, hairline borders, oversized display typography (Inter + JetBrains Mono) and a staged product mockup.
 
 ### Sections
 
-1. **Hero** — animated logo mark over a reactive dot field that bulges around your cursor.
-2. **Features** — device catalog, live overview, performance tuning and lighting, with in-browser mockups.
-3. **Devices** — supported hardware table (Razer, Redragon, Logitech, Aula, …).
-4. **Why offline** — the privacy pitch.
-5. **Power users** — dev tools and advanced settings.
-6. **Download** — version 0.5.0 for macOS + Windows.
+1. **Hero** — "All your gear. One control panel." over a reactive dot field and a product stage with the Razer Viper Mini and an in-browser control-panel preview.
+2. **Principles** — offline by design, no drivers, one interface.
+3. **Devices** — a scrolling brand marquee plus a supported-hardware index grouped by brand (Razer, Redragon, Aula, Logitech, Kreo).
+4. **Why offline** — the privacy pitch as a four-up stat grid.
+5. **Settings** — in-app updates, links and report-a-bug.
+6. **Download** — version 0.5.14 for Windows.
+7. **FAQ** — privacy, compatibility, updates and open source.
 
 ### Interactive components
 
@@ -41,7 +44,8 @@ A single-page dark editorial site built with Vite + React, featuring scroll-trig
 |---|---|
 | `AnimatedContent` | Scroll-triggered reveals (GSAP + ScrollTrigger). |
 | `ClickSpark` | Sparks at the click point anywhere on the page. |
-| `DotField` | Canvas dot grid in the hero that bulges around the cursor, with a soft radial glow. |
+| `DotField` | Canvas dot grid behind the hero that bulges around your cursor. |
+| `Icon` | Inline SVG icon set (arrows, mouse, shield, sliders, …). |
 
 ## Tech stack
 
