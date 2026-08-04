@@ -1,11 +1,11 @@
 import AnimatedContent from './components/AnimatedContent/AnimatedContent.jsx'
 import ClickSpark from './components/ClickSpark/ClickSpark.jsx'
 import DotField from './components/DotField/DotField.jsx'
+import useLatestRelease from './hooks/useLatestRelease.js'
 import './App.css'
 
 const GITHUB_URL = 'https://github.com/jazzstack/Gear-Hub'
 const ISSUES_URL = 'https://github.com/jazzstack/Gear-Hub/issues'
-const VERSION = '0.5.14'
 
 const navLinks = [
   { label: 'Devices', href: '#devices' },
@@ -116,7 +116,7 @@ function SettingsMock() {
       <div className="mock-field">
         <div className="mock-field-head">
           <span>ABOUT</span>
-          <span className="mock-value">v0.5.14 · MIT</span>
+          <span className="mock-value">MIT</span>
         </div>
       </div>
       <div className="mock-update">
@@ -205,6 +205,10 @@ function ControlPreview() {
 }
 
 function App() {
+  const release = useLatestRelease()
+  const version = release?.version
+  const downloadUrl = release?.downloadUrl || GITHUB_URL
+
   return (
     <ClickSpark sparkColor="#ffffff" sparkSize={6} sparkRadius={20} sparkCount={8} duration={450}>
       <header className="site-header">
@@ -224,9 +228,9 @@ function App() {
             <Icon name="github" />
             <span>GitHub</span>
           </a>
-          <a className="header-cta" href="#download">
+          <a className="header-cta" href={downloadUrl}>
             <Icon name="download" />
-            Download {VERSION}
+            {version ? `Download v${version}` : 'Download'}
           </a>
         </div>
       </header>
@@ -249,7 +253,7 @@ function App() {
           <div className="hero-copy-block">
             <p className="launch-notice" role="status">
               <span className="launch-notice-dot" aria-hidden="true"></span>
-              v{VERSION} · Windows · MIT licensed
+              Windows · MIT licensed
             </p>
             <h1>
               All your gear.
@@ -261,8 +265,8 @@ function App() {
               directly to your hardware over HID — no cloud, no account, no drivers.
             </p>
             <div className="hero-actions">
-              <a className="button button-primary" href="#download">
-                Download {VERSION} <Icon name="arrow" />
+              <a className="button button-primary" href={downloadUrl}>
+                {version ? `Download v${version}` : 'Download'} <Icon name="arrow" />
               </a>
               <a className="button button-secondary" href={GITHUB_URL} target="_blank" rel="noreferrer">
                 View on GitHub
@@ -425,7 +429,7 @@ function App() {
         <section id="download" className="closing">
           <p className="eyebrow">Download</p>
           <h2>
-            Gear Hub {VERSION}.
+            Gear Hub.
             <br />
             <span>Offline, one device at a time.</span>
           </h2>
@@ -434,15 +438,16 @@ function App() {
             app updates itself in place from then on.
           </p>
           <div className="closing-actions">
-            <a className="button button-primary" href={GITHUB_URL} target="_blank" rel="noreferrer">
-              Download for Windows <Icon name="download" />
+            <a className="button button-primary" href={downloadUrl}>
+              {version ? `Download v${version} for Windows` : 'Download for Windows'}{' '}
+              <Icon name="download" />
             </a>
             <a className="button button-secondary" href={GITHUB_URL} target="_blank" rel="noreferrer">
               Get it on GitHub
             </a>
           </div>
           <p className="closing-meta">
-            v{VERSION} · ELECTRON 33 · REACT 18 · WINDOWS · NSIS INSTALLER
+            WINDOWS · NSIS INSTALLER · MIT LICENSED
           </p>
         </section>
 
